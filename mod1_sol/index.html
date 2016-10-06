@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+  </head>
+<body ng-app="LunchCheck">
+   <div class="container" ng-controller="LunchCheckController">
+   <form name="myform">
+     <h1>Lunch Checker</h1>
+
+         <div class="form-group">
+             <input id="lunch-menu" type="text" name="items"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control" ng-model="input_elem" required>
+             <span ng-if="myform.items.$touched || myform.items.$invalid"><p ng-show>Please enter items</p></span>
+             <!-- Considering empty item or a space in the text box as an item -->
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="splitString(input_elem, ',')">Check If Too Much</button>
+             <!-- {{arrayOfStrings.length<=3}} -->
+             <br>
+              <span ng-if= 'arrayOfStrings.length<=3'>Enjoy!</span>
+             <span ng-if= 'arrayOfStrings.length>=4'>Too much</span>
+         </div>
+         <div class="form-group message">
+           <!-- Your message can go here. -->
+         </div>
+   </div>
+
+   </form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
