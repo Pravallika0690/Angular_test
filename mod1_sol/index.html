@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
-      input.ng-invalid {border:1px solid red;}
-      input.ng-valid {border: 1px solid green;}
+      input.ng-valid {color: green;}
     </style>
   </head>
 <body ng-app="LunchCheck">
@@ -18,19 +17,17 @@
          <div class="form-group">
              <input id="lunch-menu" type="text" name="items"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control" ng-model="input_elem" required>
-             <span ng-show="myform.items.$error.required || myform.items.$invalid" style="color:red">Please enter items</span>
+             class="form-control" ng-model="input_elem" ng-style="customStyleText">
+             
              <!-- Considering empty item or a space in the text box as an item -->
          </div>
          <div class="form-group">
-             <button class="btn btn-default" ng-click="splitString(input_elem, ',')">Check If Too Much</button>
-             <!-- {{arrayOfStrings.length<=3}} -->
-             <br>
-              <span ng-if= 'arrayOfStrings.length<=3' style="color:green">Enjoy!</span>
-             <span ng-if= 'arrayOfStrings.length>=4'>Too much</span>
+             <button class="btn btn-default" ng-click="checkItems()">Check If Too Much</button>
+             
          </div>
          <div class="form-group message">
            <!-- Your message can go here. -->
+           <span ng-style="customStyle">{{showme}}</span>
          </div>
    </div>
 
