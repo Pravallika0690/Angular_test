@@ -37,16 +37,25 @@ var abc= this;
  	{name: "chips", quantity: "2 bags"},
  	{name: "pan cakes", quantity: "2 bags"},
  	{name: "chocolates", quantity: "3"},
- 	{name: "mozarella sticks", quantity: "4"}];
+ 	{name: "bananas", quantity: "4"}];
 service.tobuy= function() {
 
  	return items;
  	}
  	
  	service.removeandpush= function(itemIndex) {
-var item= items.splice(itemIndex, 1);
-console.log(item);
-bought.push(item);
+ 		var tempItem = {
+	"name": items[itemIndex].name,
+	"quantity": items[itemIndex].quantity
+
+}
+items.splice(itemIndex, 1);
+console.log(tempItem.name + ":" + tempItem.quantity);
+
+
+//console.log(tempItem);
+bought.push(tempItem);
+//JSON.stringify(bought);
 console.log(bought);
 
  	}
