@@ -25,6 +25,7 @@ ToBuyController.$inject= [ 'ShoppingListCheckOffService'];
 var abc= this;
 
  abc.boughtitems = ShoppingListCheckOffService.alreadybought();
+ console.log(abc.boughtitems);
  
  }
 
@@ -32,11 +33,11 @@ var abc= this;
  	var service= this;
  	var bought= [];
  	var items= [ 
- 		{name: "cookies", quantity: "10"},
+ 		{"name": "cookies", "quantity": "10"},
  	{name: "chips", quantity: "2 bags"},
  	{name: "pan cakes", quantity: "2 bags"},
- 	{name: "french toast", quantity: "3"},
- 	{name: "mozarella", quantity: "4"}];
+ 	{name: "chocolates", quantity: "3"},
+ 	{name: "mozarella sticks", quantity: "4"}];
 service.tobuy= function() {
 
  	return items;
