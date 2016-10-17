@@ -66,7 +66,7 @@ var match;
 
 			})
 			.then(function (result) {
-				
+				foundItems=[];
 for(match=0; match<result.data.menu_items.length; match++) {
 var description= {
 "matchitems": result.data.menu_items[match]
