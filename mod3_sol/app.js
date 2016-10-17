@@ -17,7 +17,8 @@ narrowItDown.clicked= function(searchterm) {
 	console.log("click working");
 	//console.log(searchterm);
 	if($scope.searchterm=="" || $scope.searchterm == undefined) {
-$scope.message= "Found Nothing"
+$scope.message= "Found Nothing";
+ //MenuSearchService.getMatchedMenuItems(searchterm);
 	}
 else {
 	$scope.message= "";
@@ -27,15 +28,16 @@ promise.then(function(response) {
 	if(response== "") {
 		$scope.message="Found Nothing";
 	}
-	
+	else {
 	narrowItDown.found= response;
 	for(key=0; key<narrowItDown.found.length; key++) {
-	if(narrowItDown.found[key].matchitems.description.indexOf(searchterm)== -1) {
+	if(narrowItDown.found[key].matchitems.description.indexOf(searchterm.toLowerCase())==-1) {
 		$scope.message ="Found Nothing";
 	}
 	else $scope.message= "";
 }
 	console.log("lets see "+ narrowItDown.found);
+}
 	
 })
 .catch(function(error) {
@@ -66,12 +68,13 @@ var match;
 
 			})
 			.then(function (result) {
-				foundItems=[];
+	foundItems=[];
 for(match=0; match<result.data.menu_items.length; match++) {
 var description= {
 "matchitems": result.data.menu_items[match]
 	 }
-if(result.data.menu_items[match].description.indexOf(searchTerm) !== -1) {
+
+if(result.data.menu_items[match].description.indexOf(searchTerm.toLowerCase()) !== -1) {
 	console.log(result.data.menu_items[match].description);
 	 
 deferred.resolve(foundItems.push(description));
