@@ -11,6 +11,7 @@
 	function NarrowItDownController($scope, MenuSearchService) {
 var narrowItDown= this;
 var searchterm= narrowItDown.searchterm;
+var key;
 
 narrowItDown.clicked= function(searchterm) {
 	console.log("click working");
@@ -26,7 +27,14 @@ promise.then(function(response) {
 	if(response== "") {
 		$scope.message="Found Nothing";
 	}
+	
 	narrowItDown.found= response;
+	for(key=0; key<narrowItDown.found.length; key++) {
+	if(narrowItDown.found[key].matchitems.description.indexOf(searchterm)== -1) {
+		$scope.message ="Found Nothing";
+	}
+	else $scope.message= "";
+}
 	console.log("lets see "+ narrowItDown.found);
 	
 })
@@ -69,7 +77,7 @@ if(result.data.menu_items[match].description.indexOf(searchTerm) !== -1) {
 deferred.resolve(foundItems.push(description));
 
 }
-else {
+else if(result.data.menu_items[match].description.indexOf(searchTerm)== -1){
 	console.log("not found");
 
 }
