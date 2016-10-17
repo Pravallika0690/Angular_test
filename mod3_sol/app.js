@@ -18,7 +18,8 @@ narrowItDown.clicked= function(searchterm) {
 	if($scope.searchterm=="" || $scope.searchterm == undefined) {
 $scope.message= "Found Nothing"
 	}
-else $scope.message= "";
+else {
+	$scope.message= "";
 var promise= MenuSearchService.getMatchedMenuItems(searchterm);
 console.log(promise);
 promise.then(function(response) {
@@ -31,6 +32,7 @@ promise.then(function(response) {
  console.log("something terribly went wrong");
  	});
  }
+}
  narrowItDown.ItemRemoved= function(itemIndex) {
 
  
