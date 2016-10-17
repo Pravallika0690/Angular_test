@@ -1,0 +1,9 @@
+
+<div><ul>
+<li ng-repeat="category in myCtrl.mylist.found">
+{{category.matchitems.name}},
+{{category.matchitems.short_name}},
+{{category.matchitems.description}}
+<button class="btn btn-info" ng-click="myCtrl.onRemove({index: $index})">Don't want this item</button>
+</li></ul>
+</div>
