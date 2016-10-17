@@ -23,6 +23,9 @@ else {
 var promise= MenuSearchService.getMatchedMenuItems(searchterm);
 console.log(promise);
 promise.then(function(response) {
+	if(response== "") {
+		$scope.message="Found Nothing";
+	}
 	narrowItDown.found= response;
 	console.log("lets see "+ narrowItDown.found);
 	
@@ -64,6 +67,10 @@ if(result.data.menu_items[match].description.indexOf(searchTerm) !== -1) {
 	console.log(result.data.menu_items[match].description);
 	 
 deferred.resolve(foundItems.push(description));
+
+}
+else {
+	console.log("not found");
 
 }
 }
