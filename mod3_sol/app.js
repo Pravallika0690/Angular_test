@@ -63,8 +63,12 @@ var foundItems= [];
 var match;
 
 		service.getMatchedMenuItems= function(searchTerm) {
+			
 			var deferred= $q.defer();
 			console.log(searchTerm);
+			if(searchTerm== undefined) {
+				return deferred.promise;
+			}
 		return $http({
               method: "GET",
               url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
