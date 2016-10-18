@@ -17,8 +17,11 @@ narrowItDown.clicked= function(searchterm) {
 	console.log("click working");
 	//console.log(searchterm);
 	if($scope.searchterm=="" || $scope.searchterm == undefined) {
-$scope.message= "Found Nothing";
- //MenuSearchService.getMatchedMenuItems(searchterm);
+         $scope.message= "Found Nothing";
+         MenuSearchService.getMatchedMenuItems(searchterm).then(function(response) {
+ 	     response= "";
+ 	     narrowItDown.found= response;
+ })
 	}
 else {
 	$scope.message= "";
@@ -85,8 +88,8 @@ else if(result.data.menu_items[match].description.indexOf(searchTerm)== -1){
 
 }
 }
-console.log(searchTerm);
-console.log(foundItems);
+//console.log(searchTerm);
+//console.log(foundItems);
 return foundItems;
 })			
 
