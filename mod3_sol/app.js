@@ -39,7 +39,7 @@ promise.then(function(response) {
 	}
 	else $scope.message= "";
 }
-	console.log("lets see "+ narrowItDown.found);
+	console.log("Items found "+ narrowItDown.found);
 }
 	
 })
@@ -82,15 +82,15 @@ var description= {
 	 }
 
 if(result.data.menu_items[match].description.indexOf(searchTerm.toLowerCase()) !== -1) {
-	console.log(result.data.menu_items[match].description);
+	//console.log(result.data.menu_items[match].description);
 	 
 deferred.resolve(foundItems.push(description));
 
 }
-else if(result.data.menu_items[match].description.indexOf(searchTerm)== -1){
-	console.log("not found");
+// else {
+// 	console.log("not found");
 
-}
+// }
 }
 //console.log(searchTerm);
 //console.log(foundItems);
@@ -117,7 +117,17 @@ function FoundItems() {
 
 function ListDirectiveController() {
 	var list= this;
+	console.log("isolate controller working");
+	
+	list.containsItems= function() {
+		if(list.mylist.found!= undefined) {
+		var items= list.mylist.found;
+		console.log(items.length);
+		return items.length>0;
 
+	}
+
+}
 }
 
 })();

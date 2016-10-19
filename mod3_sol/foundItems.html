@@ -1,9 +1,10 @@
-
+<div ng-if="myCtrl.containsItems()">
 <table class="table">
-<!--<tr ><th>User</th><th>Id</th><th>Url</th><th>Followers</th></tr>-->
+<tr class="success" ><th>User</th><th>Id</th><th>Url</th><th>Followers</th></tr>
 <tr ng-repeat="category in myCtrl.mylist.found">
 <td>{{category.matchitems.name}}</td>
 <td>{{category.matchitems.short_name}}</td>
 <td>{{category.matchitems.description}}</td>
-<td><button class="btn btn-info" ng-click="myCtrl.onRemove({index: $index})">Don't want this item</button></td>
+<td><button class="btn btn-info" ng-click="myCtrl.onRemove({index: $index})">Don't want this item</button></td></tr>
 </table>
+</div>
