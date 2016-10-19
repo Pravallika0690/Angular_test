@@ -110,19 +110,22 @@ function FoundItems() {
 		},
 		 controller: ListDirectiveController,
 		 controllerAs: 'myCtrl',
-		 bindToController: true
+		 bindToController: true,
+		 
 	}
 	return ddo;
 }
 
+
+
 function ListDirectiveController() {
 	var list= this;
-	console.log("isolate controller working");
+	//console.log("isolate controller working");
 	
 	list.containsItems= function() {
 		if(list.mylist.found!= undefined) {
 		var items= list.mylist.found;
-		console.log(items.length);
+		console.log("No of items" +items.length);
 		return items.length>0;
 
 	}
