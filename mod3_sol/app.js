@@ -30,17 +30,22 @@ console.log(promise);
 promise.then(function(response) {
 	if(response== "") {
 		$scope.message="Found Nothing";
+		MenuSearchService.getMatchedMenuItems(searchterm).then(function(response) {
+ 	     response= "";
+ 	     narrowItDown.found= response;
+	})
+
 	}
 	else {
 	narrowItDown.found= response;
-	for(key=0; key<narrowItDown.found.length; key++) {
-	if(narrowItDown.found[key].matchitems.description.indexOf(searchterm.toLowerCase())==-1) {
-		$scope.message ="Found Nothing";
-	}
-	else $scope.message= "";
-}
-	console.log("Items found "+ narrowItDown.found);
-}
+// 	for(key=0; key<narrowItDown.found.length; key++) {
+// 	if(narrowItDown.found[key].matchitems.description.indexOf(searchterm.toLowerCase())==-1) {
+// 		$scope.message ="Found Nothing";
+// }
+// 	else  $scope.message= "";
+// }
+// 	console.log("Items found "+ narrowItDown.found);
+ }
 	
 })
 .catch(function(error) {
