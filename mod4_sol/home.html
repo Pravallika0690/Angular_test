@@ -1,0 +1,5 @@
+
+<div ng-controller='CategoriesController as cc'>
+<categories-list category='cc' on-view-change='cc.getItemsForCategory=$event.getItemsForCategory' items='cc'></categories-list>
+<items-list items='cc'></items-list>
+</div>

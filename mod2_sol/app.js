@@ -45,12 +45,12 @@ service.tobuy= function() {
  	
  	service.removeandpush= function(itemIndex) {
  		var tempItem = {
-	"name": items[itemIndex].name,
-	"quantity": items[itemIndex].quantity
+	          "name": items[itemIndex].name,
+	          "quantity": items[itemIndex].quantity
 
-}
-items.splice(itemIndex, 1);
-console.log(tempItem.name + ":" + tempItem.quantity);
+               }
+           items.splice(itemIndex, 1);
+           console.log(tempItem.name + ":" + tempItem.quantity);
 
 
 //console.log(tempItem);
