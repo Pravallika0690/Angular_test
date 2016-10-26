@@ -3,16 +3,7 @@
 <ul>
 <li ng-repeat='cat in $ctrl.category'>
 (<a ui-sref="itemsList({categoryId: cat.short_name})">{{cat.short_name}}</a>)
-<!-- {{cat.short_name}} -->
 {{cat.name}}
 </li>
 </ul>
 
-<!-- <div ng-if='$ctrl.containsItems()'>Items found</div> -->
-
-<!-- {{$ctrl.gotitems.menu_items[0].name}} -->
-<!-- <ul>
-<li ng-repeat='it in $ctrl.gotitems'>
-{{it.menu_items.name}}
-</li>
-</ul> -->

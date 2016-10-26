@@ -25,8 +25,7 @@ return resp;
 			}
 			
 		})
-		//$http.get()
-		console.log(items);
+		//console.log(items);
 return items;
 	}
 
