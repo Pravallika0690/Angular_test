@@ -11,11 +11,11 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 	$stateProvider
 	.state('home', {
 		url: '/',
-		templateUrl: 'home.template.html'
+		templateUrl: 'src/template/home.template.html'
 	})
 	 .state('itemsList', {
 	 	url: '/items-list/{categoryId}',
-	 	templateUrl: 'items.template.html',
+	 	templateUrl: 'src/template/items.template.html',
 	 	controller: 'ItemsController as mainItemsList',
 	 	resolve: {
 	 		category: ['$stateParams','MenuData', function($stateParams, MenuData) {
@@ -30,7 +30,7 @@ console.log($stateParams.categoryId);
 	 })
 	.state('mainCategoriesList', {
 		url: '/main-categories-list',
-		templateUrl: 'main-categories.template.html'
+		templateUrl: 'src/template/main-categories.template.html'
 	})
 	// 
 	
