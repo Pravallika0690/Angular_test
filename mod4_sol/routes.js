@@ -13,11 +13,6 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 		url: '/',
 		templateUrl: 'home.template.html'
 	})
-	 .state('categoriesList', {
-	 	url: '/categories-list',
-	 	templateUrl: 'categories.template.html',
-	 	
-	 })
 	 .state('itemsList', {
 	 	url: '/items-list/{categoryId}',
 	 	templateUrl: 'items.template.html',
