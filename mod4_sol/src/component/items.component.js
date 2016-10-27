@@ -1,6 +1,6 @@
 angular.module('data')
 .component('itemsList', {
-	templateUrl: 'items.template.html',
+	templateUrl: 'src/template/items.template.html',
 	 bindings: {
 	 	items: '<'
 	 }
