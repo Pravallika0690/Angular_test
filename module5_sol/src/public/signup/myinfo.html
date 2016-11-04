@@ -1,0 +1,20 @@
+
+<div ng-if="myInfo.getInfo=='' || myInfo.getInfo== udefined || myInfo.itemInfo== ''">Not signed up Yet.<a ui-sref="public.signup">Sign up Now</a></div>
+<h2>Customer Details</h2>
+<ul>
+<li ng-repeat='cat in myInfo.getInfo'>
+<b>Firstname</b>-{{cat.fname}}<br/>
+<b>Lastname</b>-{{cat.lname}}<br/>
+<b>Mail id</b>-{{cat.mail}}<br/>
+<b>Phone Number</b>-{{cat.phnnum}}<br/>
+<b>Menu Number requested</b>-{{cat.menunumber}}<br/>
+
+</li>
+</ul>
+<h3>Your preferred item description</h3>
+<ul>
+<li>
+Name:{{myInfo.itemInfo.name}}
+<br>Description:{{myInfo.itemInfo.description}}
+</li>
+

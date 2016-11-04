@@ -1,0 +1,23 @@
+
+<div ng-controller="SignupController as userList">
+<table class="table1">
+<tr>
+<th>Firstname:</th><td><input type="text" ng-model="userList.fname" required></input></td>
+ <!-- <span ng-if=></span>  -->
+ <td><span ng-if="userList.fname.$error.required && userList.fname.$touched">Lastname cannot be empty</span>
+          </td>
+</tr>
+<tr><th>Lastname:</th><td><input type="text" ng-model="userList.lname" required ></input></td>
+<td><span ng-if="userList.lname.$error.required && userList.lname.$touched">Lastname cannot be empty</span></td></tr>
+<tr><th>Email:</th><td> <input type="email" ng-model="userList.mail" required></input></td>
+<td><span ng-if="userList.mail.$invalid && userList.mail.$touched"> Must be a valid email address: handle@domain format</span></td></tr>
+<tr><th>Phone Number:</th><td> <input type="text" ng-model="userList.phnnum" required pattern="(\d{3})-(\d{3})-(\d{4})"></input>
+</td>
+<td><span ng-if="userList.phnnum.$invalid && userList.phnnum.$touched"> Phone must be in the format ###-###-####.</span></td></tr>
+<tr><th>Please enter the menunumber</th><td> <input type="text" ng-model="userList.menunumber"></input></td></tr>
+<tr><td>
+<button ng-click="userList.signupInfo(userList.fname, userList.lname, userList.phnnum, userList.menunumber)">Sign up</button>
+</td></tr>
+</table>
+
+</div>
