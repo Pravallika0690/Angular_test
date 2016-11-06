@@ -30,42 +30,25 @@ function routeConfig ($stateProvider) {
         }]
       }
     })
-    .state('myInfo', {
-
-      controller: 'MyinfoController',
-      controllerAs: 'myInfo'
-      // resolve: {
-      //   userDetails: ['SignupService', function(SignupService) {
-      //    // SignupService.signupInfo(fname, lname, mail, phnnum, menunumber);
-      //    return SignupService.getInfo();
-      //   }]
-      // }
-    })
-    .state('mySignup', {
-      controller: 'SignupController',
-      controllerAs: 'userList'
-      // resolve: {
-      //  items:['SignupService', function(SignupService) {
-      //   return SignupService.getItems(userList.menunumber);
-      //  }] 
-      // }
-
-    })
     .state('public.myinfo', {
       url: '/myinfo',
-      templateUrl: 'src/public/signup/myinfo.html',
+      templateUrl: 'src/public/signup/myinforegister.html',
       controller: 'MyinfoController',
-      controllerAs: 'myInfo',
-      resolve : {
-        userInfo: ['SignupService', function(SignupService) {
-          return SignupService.getInfo();
+      controllerAs: 'myInfoCtrl',
+      resolve: {
+        info: ['userInfoService', function(userInfoService) {
+          return userInfoService.getUserInfo();
         }]
       }
     })
     .state('public.signup', {
       url: '/signup',
-      templateUrl: 'src/public/signup/signup.html'
+      templateUrl: 'src/public/signup/signup.html',
+      controller: 'SignupController',
+      controllerAs: 'userList'
+    
     })
+    
     .state('public.menuitems', {
       url: '/menu/{category}',
       templateUrl: 'src/public/menu-items/menu-items.html',

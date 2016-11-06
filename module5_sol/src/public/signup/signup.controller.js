@@ -6,28 +6,45 @@
 angular.module("public")
 .controller('SignupController', SignupController);
 
-SignupController.$inject = ['SignupService'];
-function SignupController(SignupService) {
+SignupController.$inject = ['userInfoService','MenuService', 'ApiPath'];
+function SignupController(userInfoService, MenuService, ApiPath) {
 	console.log("coming to sign up controller");
 	var userList= this;
 	
-    userList.getItems= function() {
-     	console.log(userList.menunumber);
-     	SignupService.getItems()
-     	.then(function(response) {
-			 userList.getItems=response.data;
-			console.log(response.data);
-		})
+	userList.user= {fname:'', lname: '', mail: '', phnnum: '', menunumber:'', preference: {}};
 	
-}
-		 
-    userList.signupInfo= function() {
-	SignupService.signupInfo(userList.fname, userList.lname, userList.mail, userList.phnnum, userList.menunumber);
-	     // userList.getInfo =SignupService.getInfo();
-	     // console.log("getinfo from signup controller"+userList.getInfo);
-	}
+    
 
-// userList.getItems=  SignupService.getItems(userList.menunumber);
+    userList.setPreferences= function() {
+    	console.log("coming to setPreferences");
+    	MenuService.getMenuItem(userList.user.menunumber).then(function(response) {
+    		userList.user.preference= response.data;
+    		console.log(userList.user.preference);
+    		userList.user.imgsrc=  ApiPath+'/images/'+userList.user.menunumber+'.jpg';
+    		
+    		userInfoService.setUserInfo(userList.user);
+    	   
+    		userList.success=true;
+    		
+    	}, function() {userList.menuInvalid= true;})
+   
+      
+    };
+
+// userList.getPreferences = function(){
+//     	console.log(SignupService.getUserInfo());
+//         return SignupService.getUserInfo();
+//     };
+
+    // userList.isregistered= function() {
+    // 	var login= false;
+    // 	var obj= userList.getPreferences;
+    // 	for(var key in obj) {
+    // 		if(obj.hasOwnProperty(key))
+    // 			login=true;
+    // 	}
+    // 	return login;
+    // }
 		
 }
 })();

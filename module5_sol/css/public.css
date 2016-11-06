@@ -111,14 +111,18 @@ h3.menu-item-title {
   font-size: .9em;
   font-style: italic;
 }
-table  td {
+.form-group  input  {
   background-color: white;
   cursor: pointer;
   color: black;
 }
-.table1 span {
+.form-group span  {
+ 
+  color: white;
+}
+#div1 span {
   
-  color:black;
+  color:white;
 }
 /* END SINGLE CATEGORY PAGE */
 
